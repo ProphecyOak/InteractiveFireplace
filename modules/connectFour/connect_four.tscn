@@ -1,0 +1,180 @@
+[gd_scene load_steps=7 format=3 uid="uid://cy18jpk4y1gkd"]
+
+[ext_resource type="Script" uid="uid://dtlvglrgwcbmk" path="res://modules/connectFour/connect_four.gd" id="1_7fhmy"]
+[ext_resource type="PackedScene" uid="uid://b1mhq0rf583ke" path="res://modules/connectFour/chute.tscn" id="1_l77xt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qx2x8"]
+bg_color = Color(0, 0, 0, 0.482353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fhmy"]
+bg_color = Color(0.19, 0.19, 0.19, 0.552941)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 0.678431)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="SystemFont" id="SystemFont_7fhmy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_reuyr"]
+bg_color = Color(0.136014, 0.255362, 0.310012, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 30.0
+expand_margin_top = 20.0
+expand_margin_right = 30.0
+expand_margin_bottom = 20.0
+
+[node name="HBoxContainer" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ConnectFour" type="AspectRatioContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 1.098
+
+[node name="Board" type="HBoxContainer" parent="ConnectFour"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_7fhmy")
+
+[node name="Chute" parent="ConnectFour/Board" instance=ExtResource("1_l77xt")]
+layout_mode = 2
+
+[node name="Chute2" parent="ConnectFour/Board" instance=ExtResource("1_l77xt")]
+layout_mode = 2
+
+[node name="Chute3" parent="ConnectFour/Board" instance=ExtResource("1_l77xt")]
+layout_mode = 2
+
+[node name="Chute4" parent="ConnectFour/Board" instance=ExtResource("1_l77xt")]
+layout_mode = 2
+
+[node name="Chute5" parent="ConnectFour/Board" instance=ExtResource("1_l77xt")]
+layout_mode = 2
+
+[node name="Chute6" parent="ConnectFour/Board" instance=ExtResource("1_l77xt")]
+layout_mode = 2
+
+[node name="Chute7" parent="ConnectFour/Board" instance=ExtResource("1_l77xt")]
+layout_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ConnectFour"]
+
+[node name="Paused" type="PanelContainer" parent="ConnectFour/CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qx2x8")
+
+[node name="Panel" type="Panel" parent="ConnectFour/CanvasLayer/Paused"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_7fhmy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ConnectFour/CanvasLayer/Paused/Panel"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 350.0
+offset_bottom = 150.0
+theme_override_colors/default_color = Color(0.1311, 0.69, 0.214935, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_7fhmy")
+theme_override_font_sizes/normal_font_size = 40
+text = "YOU WON!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 0
+
+[node name="Label2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/normal_font_size = 20
+text = "Welcome to"
+horizontal_alignment = 1
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 200)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[b]Connect Four![/b]"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.6
+theme_override_styles/panel = SubResource("StyleBoxFlat_reuyr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[b]How To Play[/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rules" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 25
+text = "Use the joystick to move the column selector left and right.
+
+Flick the joystick down to drop a piece into one of the columns.
+
+Connect four in a row to win!"
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/normal_font_size = 15
+text = "Brought to you by:
+Your Friendly Neighborhood IT Guy"
+horizontal_alignment = 1

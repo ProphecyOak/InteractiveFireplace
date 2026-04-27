@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1mhq0rf583ke"]
+
+[ext_resource type="Script" uid="uid://w44x8no2lo5g" path="res://modules/connectFour/drop.gd" id="1_c1qyq"]
+[ext_resource type="PackedScene" uid="uid://8rjgjhwlqfj6" path="res://modules/connectFour/spot.tscn" id="1_pbwel"]
+
+[node name="Chute" type="VBoxContainer"]
+offset_right = 80.0
+offset_bottom = 524.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="Control" parent="."]
+modulate = Color(0.0798, 0.2432, 0.57, 1)
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("1_c1qyq")
+
+[node name="Left" type="Polygon2D" parent="HBoxContainer"]
+visible = false
+polygon = PackedVector2Array(10, 5, 0, 10, 10, 15)
+
+[node name="Square" type="Polygon2D" parent="HBoxContainer"]
+position = Vector2(25, 10)
+polygon = PackedVector2Array(-9, -6, -6, -9, -0.607304, -10, 7, -9, 9, -6, 10, -0.0755062, 9, 6, 6, 9, -0.10387, 10, -6, 9, -9, 6, -10, -0.0755062)
+
+[node name="Right" type="Polygon2D" parent="HBoxContainer"]
+visible = false
+position = Vector2(50, 0)
+scale = Vector2(-1, 1)
+polygon = PackedVector2Array(10, 5, 0, 10, 10, 15)
+
+[node name="Spot" parent="." instance=ExtResource("1_pbwel")]
+layout_mode = 2
+
+[node name="Spot2" parent="." instance=ExtResource("1_pbwel")]
+layout_mode = 2
+
+[node name="Spot3" parent="." instance=ExtResource("1_pbwel")]
+layout_mode = 2
+
+[node name="Spot4" parent="." instance=ExtResource("1_pbwel")]
+layout_mode = 2
+
+[node name="Spot5" parent="." instance=ExtResource("1_pbwel")]
+layout_mode = 2
+
+[node name="Spot6" parent="." instance=ExtResource("1_pbwel")]
+layout_mode = 2

@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://8rjgjhwlqfj6"]
+
+[ext_resource type="Script" uid="uid://cg373k1pr16xx" path="res://modules/connectFour/spot.gd" id="1_5fsq1"]
+
+[node name="Spot" type="AspectRatioContainer"]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 80.0
+offset_bottom = 80.0
+size_flags_vertical = 3
+script = ExtResource("1_5fsq1")
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="Control" parent="Panel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Polygon2D" parent="Panel/CenterContainer"]
+scale = Vector2(1.01333, 1.04519)
+polygon = PackedVector2Array(-4.429, -30.032, 10.571, -30.032, 20.214, -25.194, 27.714, -16.484, 32, -6, 32, 6, 29.857, 15.452, 22.371, 22.977, 14, 28, -1, 29, -11.8421, 27.7461, -19.7368, 22.9623, -26.6447, 15.3082, -30.5921, 6.69734, -30.5921, -5.74057, -25.6579, -18.1785, -16, -26)

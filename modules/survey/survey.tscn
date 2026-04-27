@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://ug3tnhtx58wo"]
+
+[ext_resource type="Script" uid="uid://dr35w4hr2v44t" path="res://modules/survey/bar_container.gd" id="1_petmk"]
+[ext_resource type="PackedScene" uid="uid://dndmex7ko7lx7" path="res://modules/survey/Vote-Bar.tscn" id="2_w1bof"]
+
+[node name="Survey" type="VBoxContainer"]
+theme_override_constants/separation = 20
+
+[node name="Title" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Title"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Title/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="Title/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Title/PanelContainer/MarginContainer/CenterContainer"]
+layout_mode = 2
+text = "How was your Spring break?"
+
+[node name="HeaderBar" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HeaderBar"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HeaderBar/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MaxLabel" type="Label" parent="HeaderBar/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Current Max Votes: 0"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HeaderBar/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TotalLabel" type="Label" parent="HeaderBar/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Current Total Votes: 0"
+
+[node name="Bars" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Bars"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bars/MarginContainer" node_paths=PackedStringArray("max_label", "total_label")]
+layout_mode = 2
+script = ExtResource("1_petmk")
+max_label = NodePath("../../../HeaderBar/HBoxContainer/MarginContainer/MaxLabel")
+total_label = NodePath("../../../HeaderBar/HBoxContainer/MarginContainer2/TotalLabel")
+
+[node name="Vote-bar" parent="Bars/MarginContainer/HBoxContainer" instance=ExtResource("2_w1bof")]
+layout_mode = 2
+joy_button_name = "Red"
+color = Color(0.807843, 0.137255, 0.160784, 1)
+label_text = "Boring"
+
+[node name="Vote-bar2" parent="Bars/MarginContainer/HBoxContainer" instance=ExtResource("2_w1bof")]
+layout_mode = 2
+joy_button_name = "Yellow"
+color = Color(0.81, 0.709155, 0.1377, 1)
+label_text = "Alright"
+
+[node name="Vote-bar3" parent="Bars/MarginContainer/HBoxContainer" instance=ExtResource("2_w1bof")]
+layout_mode = 2
+joy_button_name = "Green"
+color = Color(0.1377, 0.81, 0.305775, 1)
+label_text = "Good"
+
+[node name="Vote-bar4" parent="Bars/MarginContainer/HBoxContainer" instance=ExtResource("2_w1bof")]
+layout_mode = 2
+joy_button_name = "Blue"
+color = Color(0.1377, 0.29457, 0.81, 1)
+label_text = "Fantastic!"
